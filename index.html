@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="app-container">
+        
         <section id="screen-home" class="app-screen">
             <header>
                 <h1>BANCA HM</h1>
@@ -36,11 +37,12 @@
             </header>
             <div class="form-group">
                 <label>Monto</label>
-                <input type="number" placeholder="$0.00">
+                <input type="number" id="input-monto" placeholder="Ej: 50000">
+                
                 <label>Destinatario (Celular)</label>
-                <input type="text" placeholder="Ingresa el número">
+                <input type="tel" id="input-celular" placeholder="3117700441">
             </div>
-            <button class="primary-btn">Continuar</button>
+            <button class="primary-btn" onclick="ejecutarEnvio()">Continuar</button>
         </section>
 
         <section id="screen-receive" class="app-screen hidden">
