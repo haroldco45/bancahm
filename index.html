@@ -8,29 +8,65 @@
 </head>
 <body>
     <div class="app-container">
-        <header>
-            <h1>BANCA HM</h1>
-            <p>Bienvenido de nuevo</p>
-        </header>
-
-        <section class="balance-card">
-            <span>Saldo disponible</span>
-            <h2>$ 1.500.000</h2>
+        <section id="screen-home" class="app-screen">
+            <header>
+                <h1>BANCA HM</h1>
+                <p>¡Hola! Tu saldo:</p>
+            </header>
+            <div class="balance-card">
+                <h2>$ 1.500.000</h2>
+                <span>Disponible</span>
+            </div>
+            <div class="quick-actions">
+                <button onclick="changeScreen('screen-send')">Enviar Dinero</button>
+                <button onclick="changeScreen('screen-qr')">Escanear QR</button>
+                <button onclick="changeScreen('screen-receive')">Recibir</button>
+            </div>
+            <section class="activity">
+                <h3>Movimientos</h3>
+                <p>Transferencia Recibida +$200.000</p>
+                <p>Pago Cena - $45.000</p>
+            </section>
         </section>
 
-        <section class="actions">
-            <div class="action-btn">Enviar</div>
-            <div class="action-btn">Pedir</div>
-            <a href="https://www.davivienda.com" target="_blank" class="action-btn special">Recargar desde Davivienda</a>
+        <section id="screen-send" class="app-screen hidden">
+            <header class="app-header-sub">
+                <button class="back-btn" onclick="changeScreen('screen-home')">←</button>
+                <h1>Enviar Dinero</h1>
+            </header>
+            <div class="form-group">
+                <label>Monto</label>
+                <input type="number" placeholder="$0.00">
+                <label>Destinatario (Celular)</label>
+                <input type="text" placeholder="Ingresa el número">
+            </div>
+            <button class="primary-btn">Continuar</button>
         </section>
 
-        <section class="history">
-            <h3>Movimientos recientes</h3>
-            <ul>
-                <li><span>Cena Amigos</span> <span class="minus">-$ 45.000</span></li>
-                <li><span>Transferencia Recibida</span> <span class="plus">+$ 200.000</span></li>
-            </ul>
+        <section id="screen-receive" class="app-screen hidden">
+            <header class="app-header-sub">
+                <button class="back-btn" onclick="changeScreen('screen-home')">←</button>
+                <h1>Tu código QR</h1>
+            </header>
+            <div class="qr-placeholder">
+                <div class="qr-sim-box">QR HM</div>
+            </div>
+            <p>Escanea para recibir dinero a BANCA HM</p>
+        </section>
+
+        <section id="screen-qr" class="app-screen hidden">
+            <header class="app-header-sub">
+                <button class="back-btn" onclick="changeScreen('screen-home')">←</button>
+                <h1>Escanear</h1>
+            </header>
+            <div class="qr-scanner-view">
+                <div class="scanner-aim"></div>
+                <p>Coloca el código QR frente a la cámara</p>
+            </div>
+            <p>Escanear código QR para pagar</p>
         </section>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
